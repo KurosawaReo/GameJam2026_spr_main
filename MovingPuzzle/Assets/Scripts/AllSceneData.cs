@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-using KR.Unity.Inspector;
-
 /// <summary>
 /// シーンを越えても消えないクラス.
 /// </summary>
@@ -11,7 +9,6 @@ public class AllSceneData : MonoBehaviour
     public static AllSceneData instance;
 
     //完成した段ボール箱.
-    [SerializeField, ReadOnly] 
     List<CardboardBox> boxs = new List<CardboardBox>();
 
     /// <summary>

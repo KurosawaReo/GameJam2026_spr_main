@@ -447,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2017757682792814156, guid: 2fbeb374ddf553a449594bd6beb5e00c, type: 3}
       propertyPath: boxs.Array.size
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6940792058975044875, guid: 2fbeb374ddf553a449594bd6beb5e00c, type: 3}
       propertyPath: m_LocalPosition.x
