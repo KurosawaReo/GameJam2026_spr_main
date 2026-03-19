@@ -8,6 +8,6 @@ public class ResultManager : MonoBehaviour
     /// </summary>
     public void PushToTitle()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("TitleScene");
     }
 }
