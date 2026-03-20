@@ -8,10 +8,13 @@ using System.Collections.Generic;
 /// <summary>
 /// Createメニューから作成できるリストの定義.
 /// </summary>
-[CreateAssetMenu(menuName = "MyGame/LuggageSettingsList")] //Createメニューのパス.
+[CreateAssetMenu(
+    fileName = "New List",                  //デフォルトファイル名.
+    menuName = "MyGame/LuggageSettingsList" //Createメニューのパス.
+)]
 public class LuggageSettingsList : ScriptableObject
 {
-    public List<Luggage> list;
+    [SerializeField] List<Luggage> list; //荷物リスト.
 
     /// <summary>
     /// 種類からpoint取得.

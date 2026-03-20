@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d47b1da13d6ee41b5e9f011b98ffdc, type: 3}
   m_Name: New Luggage Settings List
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - type: 0
+    point: 10
+  - type: 1
+    point: 20
