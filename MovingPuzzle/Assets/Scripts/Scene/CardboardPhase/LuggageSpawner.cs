@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class LuggageSpawner : MonoBehaviour
 {
+    public static LuggageSpawner Instance;
+
     [Header("生成設定")]
     [Tooltip("生成する荷物のプレハブリスト")]
     public GameObject[] luggagePrefabs;
     
     [Tooltip("一度に生成する数")]
-    public int spawnCount = 5;
+    public int spawnCount;
 
     [Tooltip("生成範囲（このTransformの位置を中心にランダムな範囲）")]
     public Vector2 spawnAreaSize = new Vector2(4f, 2f);
-
-    public static LuggageSpawner Instance;
 
     void Awake()
     {
@@ -21,16 +21,11 @@ public class LuggageSpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnLuggages();
+        //初期生成.
+        SpawnLuggages(spawnCount);
     }
 
-    public void SpawnLuggages()
-    {
-        // 初期生成（上限まで）
-        SpawnSpecificAmount(spawnCount);
-    }
-
-    public void SpawnSpecificAmount(int amount)
+    public void SpawnLuggages(int amount)
     {
         if (luggagePrefabs == null || luggagePrefabs.Length == 0)
         {

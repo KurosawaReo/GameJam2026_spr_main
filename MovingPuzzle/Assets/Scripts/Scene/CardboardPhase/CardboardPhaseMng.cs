@@ -16,7 +16,7 @@ public class CardboardPhaseMng : MonoBehaviour
     public Text timerText;
 
     [Header("アニメーション")]
-    [SerializeField] AnimSceneMove animSceneMove;
+    [SerializeField] AnimSceneMove animSceneIn;
 
     private float currentTime;
     private bool isFinished = false;
@@ -44,7 +44,7 @@ public class CardboardPhaseMng : MonoBehaviour
         //終了後.
         else { 
             //アニメーション終了後、次のシーンへ.
-            if (animSceneMove.IsFinished())
+            if (animSceneIn.IsFinished())
             {
                 NextScene();
             }
@@ -74,7 +74,7 @@ public class CardboardPhaseMng : MonoBehaviour
             boxArea.UpdateTotalPoints();
         }
 
-        animSceneMove.AnimExe(); //アニメーション実行.
+        animSceneIn.AnimExe(); //アニメーション実行.
     }
 
     /// <summary>

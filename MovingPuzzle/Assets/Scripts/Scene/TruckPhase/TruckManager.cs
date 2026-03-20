@@ -6,16 +6,13 @@ public class TruckManager : MonoBehaviour
 
     private void Start()
     {
-        var scptASD = GameObject.Find("AllSceneData").GetComponent<AllSceneData>();
+        //ここに書いてるのはデバッグ用.
 
-        if (scptASD)
+        var boxs = AllSceneData.instance.GetCardboardBoxs();
+        Debug.Log("数:" + boxs.Count);
+        foreach (var box in boxs)
         {
-            var boxs = scptASD.GetCardboardBoxs();
-            Debug.Log("数:"+boxs.Count);
-            foreach (var box in boxs)
-            {
-                Debug.Log("ダンボール:" + box.point);
-            }
+            Debug.Log("ダンボール:" + box.point);
         }
     }
 

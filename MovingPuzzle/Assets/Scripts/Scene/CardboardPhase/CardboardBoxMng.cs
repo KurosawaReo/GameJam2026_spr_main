@@ -102,7 +102,7 @@ public class CardboardBoxMng : MonoBehaviour
                 
                 if (amountToSpawn > 0)
                 {
-                    LuggageSpawner.Instance.SpawnSpecificAmount(amountToSpawn);
+                    LuggageSpawner.Instance.SpawnLuggages(amountToSpawn);
                     Debug.Log($"箱に {amountToSpawn} 個の家具を入れて送りました。同じ数を補充しました。");
                 }
             }

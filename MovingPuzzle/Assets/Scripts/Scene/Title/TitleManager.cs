@@ -3,17 +3,31 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
+    [Header("- Animation -")]
+    [SerializeField] AnimSceneMove animSceneIn;
+    
+    void Update()
+    {
+        //アニメーション終了後、次のシーンへ.
+        if (animSceneIn.IsFinished())
+        {
+            NextScene();
+        }
+    }
+
     /// <summary>
     /// ゲーム開始.
     /// </summary>
     public void PushStart()
     {
-        SceneManager.LoadScene("CardboardBoxScene"); //段ボール箱フェーズへ.
+        animSceneIn.AnimExe(); //アニメーション実行.
+    }
 
-        Luggage l = new Luggage(); //荷物を作成.
-
-        //荷物の設定.
-        l.type  = LuggageType.Chair; //何の荷物か.
-        l.point = 1;                 //何pointか.
+    /// <summary>
+    /// 次のシーンへ.
+    /// </summary>
+    public void NextScene()
+    {
+        SceneManager.LoadScene("CardboardBoxScene");
     }
 }

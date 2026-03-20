@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   square: {fileID: 8381341224928335798}
   type: 1
-  maxTime: 1
+  maxTime: 0.5
   moveLen: 10
 --- !u!1 &8381341224928335798
 GameObject:
