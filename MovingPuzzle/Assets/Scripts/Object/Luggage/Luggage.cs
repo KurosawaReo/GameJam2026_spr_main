@@ -18,8 +18,25 @@ using System;
 /// </summary>
 public enum LuggageType
 {
-    Chair, //ˆÖŽq.
-    Desk,  //Š÷.
+    BalanceBall,
+    Bicycle,
+    Bed,
+    Cactus,
+    Chair,     //ˆÖŽq.
+    ChairBaby,
+    Desk,      //Š÷.
+    Dryer,
+    ElectricFan,
+    FireExtinguisher,
+    Game,
+    Hat,
+    Marlin,
+    Pants,
+    Plants,
+    Shirt,
+    Tv,
+    Umbrella,
+    VacuumCleaner,
 }
 
 /// <summary>
