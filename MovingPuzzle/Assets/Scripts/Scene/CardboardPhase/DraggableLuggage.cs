@@ -151,7 +151,8 @@ public class DraggableLuggage : MonoBehaviour
             transform.position = originalPosition;
             transform.rotation = originalRotation;
             if (spriteRenderer != null) spriteRenderer.color = originalColor;
-            Debug.Log("そこには配置できません！");
+
+//          Debug.Log("そこには配置できません！");
         }
     }
 

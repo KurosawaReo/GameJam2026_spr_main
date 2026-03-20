@@ -6,27 +6,56 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Collider2D))]
 public class CardboardBoxArea : MonoBehaviour
 {
-    private Collider2D boxCollider;
+    [Header("荷物")]
+    [SerializeField] LuggageSettingsList luggageList; //荷物設定リスト.
 
-    [Header("箱のデータ")]
-    [Tooltip("提供された段ボール箱クラスを統合")]
-    public CardboardBox boxData = new CardboardBox();
+    CardboardBox boxData; //この段ボール箱のデータ.
+    Collider2D   boxCollider;
 
-    // 箱に入っている荷物のリスト（内部管理用）
-    private List<DraggableLuggage> containedLuggages = new List<DraggableLuggage>();
+    //get.
+    public CardboardBox BoxData { get => boxData; }
+
+    //箱に入っている荷物のリスト（内部管理用）
+//  private List<DraggableLuggage> containedLuggages = new List<DraggableLuggage>();
 
     void Awake()
     {
+        boxData     = new();
         boxCollider = GetComponent<Collider2D>();
     }
 
-    // 荷物が箱の中に収まっているか判定する
+    /// <summary>
+    /// 荷物が箱の中に収まっているか判定.
+    /// 完全に入ってる場合のみOK.
+    /// </summary>
+    /// <param name="luggageBounds">???</param>
+    /// <returns>収まっていればtrue</returns>
     public bool ContainsBounds(Bounds luggageBounds)
     {
         if (boxCollider == null) return false;
-        
+
         // 少し判定を甘くし、荷物の中心が箱のコライダー内に入っていればOKとする
-        return boxCollider.OverlapPoint((Vector2)luggageBounds.center);
+        //return boxCollider.OverlapPoint((Vector2)luggageBounds.center);
+
+        // 四隅チェック
+        Vector2 min = luggageBounds.min;
+        Vector2 max = luggageBounds.max;
+
+        Vector2[] points = new Vector2[]
+        {
+            new Vector2(min.x, min.y),
+            new Vector2(min.x, max.y),
+            new Vector2(max.x, min.y),
+            new Vector2(max.x, max.y),
+        };
+
+        foreach (var p in points)
+        {
+            if (!boxCollider.OverlapPoint(p))
+                return false;
+        }
+
+        return true;
     }
 
     // 箱の中にある荷物の合計ポイントを計算して boxData.point に反映する関数
@@ -45,10 +74,12 @@ public class CardboardBoxArea : MonoBehaviour
             foreach (var col in results)
             {
                 DraggableLuggage luggage = col.GetComponent<DraggableLuggage>();
-                // 荷物であり、かつ完全に箱の中にある場合のみ加算
+
+                //完全に箱の中にある荷物のpointを加算.
                 if (luggage != null && ContainsBounds(col.bounds))
                 {
-                    total += luggage.luggageData.point;
+                    //荷物の種類から、pointを取得して加算.
+                    total += luggageList.GetPoint(luggage.luggageData.type);
                 }
             }
         }

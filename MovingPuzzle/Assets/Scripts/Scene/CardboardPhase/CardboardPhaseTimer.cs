@@ -47,7 +47,7 @@ public class CardboardPhaseTimer : MonoBehaviour
 
     void OnTimeUp()
     {
-        Debug.Log("時間切れ！トラックフェーズへ移行します。");
+//      Debug.Log("時間切れ！トラックフェーズへ移行します。");
         
         // --- 今回追加：時間切れのタイミングで荷物の合計ポイントを計算する ---
         CardboardBoxArea boxArea = FindFirstObjectByType<CardboardBoxArea>();

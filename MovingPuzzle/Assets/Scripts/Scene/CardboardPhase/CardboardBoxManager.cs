@@ -86,8 +86,8 @@ public class CardboardBoxManager : MonoBehaviour
             // --- 全体管理用スクリプト (AllSceneData) にこの箱のデータを格納する ---
             if (AllSceneData.instance != null)
             {
-                AllSceneData.instance.AddCardboardBox(oldBox.boxData);
-                Debug.Log($"箱を AllSceneData に格納しました（合計ポイント: {oldBox.boxData.point}）");
+                AllSceneData.instance.AddCardboardBox(oldBox.BoxData);
+                Debug.Log($"箱を AllSceneData に格納しました（合計ポイント: {oldBox.BoxData.point}）");
             }
             
             // --- 補充処理：今回送った荷物と「全く同じ数だけ」新しく追加して上限を保つ ---

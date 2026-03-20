@@ -3,6 +3,22 @@ using System.Collections.Generic;
 
 public class TruckManager : MonoBehaviour
 {
+
+    private void Start()
+    {
+        var scptASD = GameObject.Find("AllSceneData").GetComponent<AllSceneData>();
+
+        if (scptASD)
+        {
+            var boxs = scptASD.GetCardboardBoxs();
+            Debug.Log("êî:"+boxs.Count);
+            foreach (var box in boxs)
+            {
+                Debug.Log("É_ÉìÉ{Å[Éã:" + box.point);
+            }
+        }
+    }
+
     #region ===== ê›íË =====
     [SerializeField] private Transform checkAreaCenter;
     [SerializeField] private Vector2 checkAreaSize = new Vector2(5f, 2f);
