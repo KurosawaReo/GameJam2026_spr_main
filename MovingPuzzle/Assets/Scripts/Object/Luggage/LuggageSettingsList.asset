@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7d47b1da13d6ee41b5e9f011b98ffdc, type: 3}
-  m_Name: New Luggage Settings List
+  m_Name: LuggageSettingsList
   m_EditorClassIdentifier: 
   list:
   - type: 0
