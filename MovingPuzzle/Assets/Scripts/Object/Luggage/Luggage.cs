@@ -18,25 +18,28 @@ using System;
 /// </summary>
 public enum LuggageType
 {
-    BalanceBall,
-    Bicycle,
-    Bed,
-    Cactus,
-    Chair,     //椅子.
-    ChairBaby,
-    Desk,      //机.
-    Dryer,
-    ElectricFan,
-    FireExtinguisher,
-    Game,
-    Hat,
-    Marlin,
-    Pants,
-    Plants,
-    Shirt,
-    Tv,
-    Umbrella,
-    VacuumCleaner,
+    BalanceBall,      //バランスボール.
+    Bed,              //ベッド.
+    Bicycle,          //自転車.
+    Cactus,           //サボテン.
+    Chair,            //椅子.
+    ChairBaby,        //椅子(ベビー)
+    Desk,             //机.
+    Dryer,            //ドライヤー.
+    ElectricFan,      //扇風機.
+    FireExtinguisher, //消火器.
+    Game,             //ゲーム.
+    Hat,              //帽子.
+    Marlin,           //カジキ.
+    Pants,            //ズボン.
+    Plants,           //植木.
+    Shirt,            //シャツ.
+    Telescope,        //望遠鏡.
+    Tv,               //テレビ.
+    Umbrella,         //傘.
+    VacuumCleaner,    //掃除機.
+
+    CardboardBox,     //段ボール箱.
 }
 
 /// <summary>

@@ -46,8 +46,10 @@ MonoBehaviour:
   - type: 15
     point: 5
   - type: 16
+    point: 30
+  - type: 17
     point: 25
-  - type: 17
+  - type: 18
     point: 8
-  - type: 17
-    point: 8
+  - type: 19
+    point: 16

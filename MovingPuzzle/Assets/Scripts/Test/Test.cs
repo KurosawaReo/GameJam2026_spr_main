@@ -2,16 +2,27 @@
    ただのテスト。開発には使わない。
 */
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] LuggageSettingsList settings; //設定リスト.
+    //    [SerializeField] LuggageSettingsList settings; //設定リスト.
+    [SerializeField] AnimSceneMove anim;
 
     void Start()
     {
         //椅子のpointを取得.
-        var point = settings.GetPoint(LuggageType.Chair);
-        Debug.Log(point);
+//      var point = settings.GetPoint(LuggageType.Chair);
+
+        anim.AnimExe();
+    }
+
+    void Update()
+    {
+        if (anim.IsFinished())
+        {
+            SceneManager.LoadScene("TestKR2");
+        }
     }
 
     /// <summary>
