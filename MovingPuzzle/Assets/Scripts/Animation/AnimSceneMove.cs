@@ -58,7 +58,7 @@ public class AnimSceneMove : AnimationKR
     }
 
     /// <summary>
-    /// アニメーション実行(out用)
+    /// アニメーション実行.
     /// </summary>
     public void AnimExe()
     {

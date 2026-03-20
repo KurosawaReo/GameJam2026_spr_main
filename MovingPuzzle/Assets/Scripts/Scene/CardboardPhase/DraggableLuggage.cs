@@ -51,9 +51,9 @@ public class DraggableLuggage : MonoBehaviour
         }
 
         // 未配置の場合、マネージャーが管理する「現在アクティブな最新の箱」を取得
-        if (CardboardBoxManager.Instance != null && CardboardBoxManager.Instance.currentBoxArea != null)
+        if (CardboardBoxMng.Instance != null && CardboardBoxMng.Instance.currentBoxArea != null)
         {
-            targetBox = CardboardBoxManager.Instance.currentBoxArea;
+            targetBox = CardboardBoxMng.Instance.currentBoxArea;
             return targetBox;
         }
 

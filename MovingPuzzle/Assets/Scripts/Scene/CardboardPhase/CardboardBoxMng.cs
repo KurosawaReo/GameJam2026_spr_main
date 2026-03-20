@@ -2,9 +2,12 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class CardboardBoxManager : MonoBehaviour
+/// <summary>
+/// 段ボール箱の管理.
+/// </summary>
+public class CardboardBoxMng : MonoBehaviour
 {
-    public static CardboardBoxManager Instance;
+    public static CardboardBoxMng Instance;
 
     [Header("設定")]
     [Tooltip("新しく生成する段ボール箱のプレハブ")]
