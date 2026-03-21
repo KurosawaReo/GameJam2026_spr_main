@@ -29,6 +29,11 @@ public class CardboardPhaseMng : MonoBehaviour
 
     void Update()
     {
+        UpdateTimer();
+    }
+
+    private void UpdateTimer()
+    {
         //ゲーム中.
         if (!isFinished)
         {
@@ -42,7 +47,8 @@ public class CardboardPhaseMng : MonoBehaviour
             UpdateTimerUI();
         }
         //終了後.
-        else { 
+        else
+        {
             //アニメーション終了後、次のシーンへ.
             if (animSceneIn.IsFinished())
             {

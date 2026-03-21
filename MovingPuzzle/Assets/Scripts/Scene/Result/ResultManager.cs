@@ -20,7 +20,6 @@ public class ResultManager : MonoBehaviour
     /// </summary>
     public void PushToTitle()
     {
-        Debug.Log("a");
         animSceneIn.AnimExe(); //アニメーション実行.
     }
 
