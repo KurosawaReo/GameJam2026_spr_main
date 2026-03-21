@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CardboardScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/TitleScene.unity
+    guid: 59a55e8b1a5ae9c4f93922434df1ce1e
+  - enabled: 1
+    path: Assets/Scenes/CardboardBoxScene.unity
+    guid: 53928882950661b479cb492481f279e5
+  - enabled: 1
+    path: Assets/Scenes/TruckScene.unity
+    guid: a8d2ff1d1ffd4ff458042dc4657da0bb
+  - enabled: 1
+    path: Assets/Scenes/ResultScene.unity
+    guid: 2fa93c081dabd434aa0aa78aa5251f67
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
