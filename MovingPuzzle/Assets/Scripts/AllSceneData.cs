@@ -9,7 +9,15 @@ public class AllSceneData : MonoBehaviour
     public static AllSceneData instance;
 
     //完成した段ボール箱.
-    List<CardboardBox> boxs = new List<CardboardBox>();
+    Queue<CardboardBox> boxs = new Queue<CardboardBox>();
+    //最終ポイント.
+    int resultPoint;
+
+    //get, set.
+    public int ResultPoint
+    {
+        get => resultPoint; set => resultPoint = value;
+    }
 
     /// <summary>
     /// 初期化処理.
@@ -33,13 +41,13 @@ public class AllSceneData : MonoBehaviour
     /// </summary>
     public void AddCardboardBox(CardboardBox box)
     {
-        boxs.Add(box); //Listに追加.
+        boxs.Enqueue(box); //Queueに追加.
     }
 
     /// <summary>
     /// 完成した段ボール箱を受け取る.
     /// </summary>
-    public List<CardboardBox> GetCardboardBoxs()
+    public Queue<CardboardBox> GetCardboardBoxs()
     {
         return boxs;
     }

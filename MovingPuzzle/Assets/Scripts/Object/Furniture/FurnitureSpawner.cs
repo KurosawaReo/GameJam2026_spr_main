@@ -37,30 +37,37 @@ public class FurnitureSpawner : MonoBehaviour
     #region ===== 家具生成 =====
     public void SpawnFurniture(Luggage luggage)
     {
-        // ⭐ 同時に1個だけ
         if (currentBox != null) return;
 
-        // ⭐ null対策
         if (luggage == null)
         {
             Debug.LogError("Luggageがnull！");
             return;
         }
 
-        //設置リストからprefab取得.
-        GameObject prefab = LuggageSettingsList.GetLuggage(luggage.type).prefab;
-        
-        if (prefab == null)
+        if (LuggageSettingsList == null)
         {
-            Debug.LogError("設置リストにPrefabが設定されてない！");
+            Debug.LogError("LuggageSettingsListが未設定！");
             return;
         }
 
-        // ⭐ 生成
-        GameObject obj = Instantiate(prefab);
+        var data = LuggageSettingsList.GetLuggage(luggage.type);
+
+        if (data == null)
+        {
+            Debug.LogError("未登録のLuggageType: " + luggage.type);
+            return;
+        }
+
+        if (data.prefab == null)
+        {
+            Debug.LogError("Prefab未設定: " + luggage.type);
+            return;
+        }
+
+        GameObject obj = Instantiate(data.prefab);
         currentBox = obj;
 
-        // ⭐ DropBox取得
         DropLuggage box = obj.GetComponent<DropLuggage>();
 
         if (box != null)
@@ -70,7 +77,7 @@ public class FurnitureSpawner : MonoBehaviour
         }
         else
         {
-            Debug.LogError("DropBoxがPrefabについてない！");
+            Debug.LogError("DropLuggageがPrefabについてない！");
         }
     }
     #endregion

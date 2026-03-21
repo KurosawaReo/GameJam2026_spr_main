@@ -36,6 +36,6 @@ public class Test : MonoBehaviour
         AllSceneData.instance.AddCardboardBox(box);
 
         var boxs = AllSceneData.instance.GetCardboardBoxs();
-        Debug.Log(boxs[0].point);
+       /// Debug.Log(boxs[0].point);*/
     }
 }
