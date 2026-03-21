@@ -373,19 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2720d21e41bf6dc42a6c5c6f11cd72c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 1444828949239173600, guid: a44c5ec92c6754948aac327433a81e28, type: 3}
-  - {fileID: 4364017096300164796, guid: 5751f68f1427ad445b1c92d4533a8e17, type: 3}
-  - {fileID: 8049682832109444404, guid: 4ee1a61e77068894aaf9c3d1884a5f2a, type: 3}
-  - {fileID: 1700285800899028996, guid: d2464c099a4247e47937cc8f5214cd83, type: 3}
-  - {fileID: 5316464060418397613, guid: ec4af9b4351444b43b8c276a662e9f99, type: 3}
-  - {fileID: 6407402404990448381, guid: e4c5b720a8d21dd4ba29e5a1e537712b, type: 3}
-  - {fileID: 9025221821204323343, guid: e62a589f3c22c1742a374db9f1bc5293, type: 3}
-  - {fileID: 7723592822058349430, guid: a2ec14fb45d62564ba31c0db44d381eb, type: 3}
-  - {fileID: 3716843478260991421, guid: ad7908d370ca9214b9174fb087a888b9, type: 3}
-  - {fileID: 164525495086334912, guid: 979819236be4d394fb66688976fc1a31, type: 3}
-  spawnPoint: {fileID: 289084510}
-  spawnCheckRadius: 0.5
+  LuggageSettingsList: {fileID: 11400000, guid: f8ef34cac345e7f468b9340b05a9e6ad, type: 2}
 --- !u!4 &146929576
 Transform:
   m_ObjectHideFlags: 0
@@ -958,6 +946,7 @@ MonoBehaviour:
     type: 0
     point: 0
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   iconImage: {fileID: 75653220}
 --- !u!1 &630524240
 GameObject:
@@ -1490,6 +1479,7 @@ MonoBehaviour:
     type: 8
     point: 0
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   iconImage: {fileID: 45380448}
 --- !u!1 &1217534670
 GameObject:
@@ -2215,6 +2205,7 @@ MonoBehaviour:
     type: 12
     point: 0
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   iconImage: {fileID: 910373122}
 --- !u!1 &1767865879
 GameObject:

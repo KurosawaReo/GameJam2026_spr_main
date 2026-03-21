@@ -64,7 +64,7 @@ MonoBehaviour:
   - type: 12
     point: 30
     sprite: {fileID: -2152756542046952513, guid: dfdfdbded4d014b42be4f3b2fb009fac, type: 3}
-    prefab: {fileID: 0}
+    prefab: {fileID: 650649946021452586, guid: e69ccef6f6a7f9c4ebd7c4a292942c3f, type: 3}
   - type: 13
     point: 5
     sprite: {fileID: 111648954039052082, guid: 7795a09103ffa674185d2a7d873fa2df, type: 3}
@@ -80,7 +80,7 @@ MonoBehaviour:
   - type: 16
     point: 30
     sprite: {fileID: -4167663028475635082, guid: e569b782b6e2eda43b7b03bd81252bbd, type: 3}
-    prefab: {fileID: 0}
+    prefab: {fileID: 337817239553385901, guid: 7735a473eaa48024b811a1e7d42e9d7d, type: 3}
   - type: 17
     point: 25
     sprite: {fileID: -3578749811347107042, guid: 270621e3ded522c46a7e3d32ffafe244, type: 3}
