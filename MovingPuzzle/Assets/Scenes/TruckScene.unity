@@ -524,37 +524,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 7, y: 3.1362648}
   m_EdgeRadius: 0
---- !u!1 &289084509
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 289084510}
-  m_Layer: 0
-  m_Name: kari
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &289084510
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289084509}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 122.03999, y: 144.71999, z: -9604.404}
-  m_LocalScale: {x: 108, y: 108, z: 108}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 964772081}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &310827820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -759,7 +728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 358816479}
   m_Layer: 5
-  m_Name: CheckArea(Kari)
+  m_Name: CheckArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1276,7 +1245,6 @@ RectTransform:
   - {fileID: 1722816268}
   - {fileID: 630524241}
   - {fileID: 358816479}
-  - {fileID: 289084510}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1929,7 +1897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f169c559dcd3bf04084fdd186ef74dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 20
+  timeLimit: 10
   nextSceneName: ResultScene
   timerText: {fileID: 2071116965}
   animSceneIn: {fileID: 1171275786}

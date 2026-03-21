@@ -31,10 +31,12 @@ public class FurnitureSpawner : MonoBehaviour
         }
     }
 
+#if false
     private void Update()
     {
         Debug.Log("箱数:" + remainingBoxs.Count);
     }
+#endif
 
     /// <summary>
     /// ボタンの次の設定.
@@ -75,7 +77,7 @@ public class FurnitureSpawner : MonoBehaviour
         return true;
     }
 #endif
-    #endregion
+#endregion
 
 
     #region ===== 荷物生成 =====

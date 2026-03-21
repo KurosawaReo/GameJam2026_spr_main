@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public class TruckManager : MonoBehaviour
 {
@@ -139,6 +140,7 @@ public class TruckManager : MonoBehaviour
             targetLayer
         );
 
+        //トラックに乗った荷物をループ.
         foreach (var hit in hits)
         {
             DropLuggage luggage = hit.GetComponent<DropLuggage>();
@@ -151,7 +153,15 @@ public class TruckManager : MonoBehaviour
 
             int point = settingsList.GetPoint(type);
 
-            AddScore(point, type.ToString());
+            AddScore(point, type.ToString()); //スコア加算.
+        }
+
+        //結果保存.
+        int score = ScoreDataManager.instance.GetScore();
+
+        if (AllSceneData.instance)
+        {
+            AllSceneData.instance.ResultPoint = score;        
         }
     }
     #endregion

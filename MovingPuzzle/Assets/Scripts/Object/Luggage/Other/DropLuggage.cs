@@ -126,7 +126,8 @@ public class DropLuggage : MonoBehaviour
     {
         isHolding = false;
 
-//        gameObject.layer = LayerMask.NameToLayer("settings");
+        //ドロップする荷物に"settings"レイヤーをつける.
+        gameObject.layer = LayerMask.NameToLayer("settings");
 
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 1.5f;

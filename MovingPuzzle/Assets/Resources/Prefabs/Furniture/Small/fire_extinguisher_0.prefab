@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6391497443287009821}
   - component: {fileID: -5208156785680958682}
   - component: {fileID: -3268362743617895155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fire_extinguisher_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,3 +316,5 @@ MonoBehaviour:
   luggageData:
     type: 16
     point: 0
+    sprite: {fileID: 0}
+    prefab: {fileID: 0}

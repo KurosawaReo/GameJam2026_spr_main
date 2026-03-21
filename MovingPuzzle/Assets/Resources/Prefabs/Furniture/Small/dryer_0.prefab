@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 879489312496534773}
   - component: {fileID: 2822503031891584721}
   - component: {fileID: 8328378419743260618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: dryer_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,3 +218,5 @@ MonoBehaviour:
   luggageData:
     type: 11
     point: 0
+    sprite: {fileID: 0}
+    prefab: {fileID: 0}

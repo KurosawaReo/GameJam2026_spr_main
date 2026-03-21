@@ -1,10 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ResultManager : MonoBehaviour
 {
     [Header("- Animation -")]
     [SerializeField] AnimSceneMove animSceneIn;
+
+    [Header("- Text -")]
+    [SerializeField] Text txtScore;
+
+    private void Start()
+    {
+        //ÉXÉRÉAì«Ç›çûÇ›.
+        int score = AllSceneData.instance.ResultPoint;
+        Debug.Log("score" + score);
+        txtScore.text = score + " point";
+    }
 
     void Update()
     {
