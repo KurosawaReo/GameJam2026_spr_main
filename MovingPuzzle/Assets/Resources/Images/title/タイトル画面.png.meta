@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6dbf8ac4644650040ab5aacf8a4d3696
+guid: 06f97c4616a53f4459f5a04fa066f264
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7195701628597036233
-    second: cardboard_ui_next_0
+      213: -5081949855336221306
+    second: "\u30BF\u30A4\u30C8\u30EB\u753B\u9762_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cardboard_ui_next_0
+      name: "\u30BF\u30A4\u30C8\u30EB\u753B\u9762_0"
       rect:
         serializedVersion: 2
-        x: 1
-        y: 10
-        width: 342
-        height: 880
+        x: 0
+        y: 0
+        width: 4000
+        height: 2250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c4e93ab1844cd360800000000000000
-      internalID: 7195701628597036233
+      spriteID: 685365a28894979b0800000000000000
+      internalID: -5081949855336221306
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      cardboard_ui_next_0: 7195701628597036233
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
