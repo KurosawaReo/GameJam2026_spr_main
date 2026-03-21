@@ -6,17 +6,15 @@
 public class FurnitureSpawner : MonoBehaviour
 {
     #region ===== 変数 =====
-    public GameObject[] prefabs; // enum順
-    public Transform spawnPoint;
+    public LuggageSettingsList LuggageSettingsList; //荷物設定リスト.
 
     private GameObject currentBox;
-
-    // ⭐ 生成チェック用半径
-    [SerializeField] private float spawnCheckRadius = 0.5f;
     #endregion
 
 
     #region ===== 生成位置チェック =====
+
+#if false
     bool CanSpawnHere(Vector3 pos)
     {
         // ⭐ Luggageレイヤーだけ検出
@@ -32,6 +30,7 @@ public class FurnitureSpawner : MonoBehaviour
 
         return true;
     }
+#endif
     #endregion
 
 
@@ -48,31 +47,17 @@ public class FurnitureSpawner : MonoBehaviour
             return;
         }
 
-        // ⭐ 範囲チェック
-        if ((int)luggage.type >= prefabs.Length)
-        {
-            Debug.LogError("Prefab数が足りない！");
-            return;
-        }
-
-        GameObject prefab = prefabs[(int)luggage.type];
-
+        //設置リストからprefab取得.
+        GameObject prefab = LuggageSettingsList.GetLuggage(luggage.type).prefab;
+        
         if (prefab == null)
         {
-            Debug.LogError("Prefabが設定されてない！");
-            return;
-        }
-
-        Vector3 pos = spawnPoint.position;
-
-        // ⭐ ここが追加ポイント（生成禁止）
-        if (!CanSpawnHere(pos))
-        {
+            Debug.LogError("設置リストにPrefabが設定されてない！");
             return;
         }
 
         // ⭐ 生成
-        GameObject obj = Instantiate(prefab, pos, Quaternion.identity);
+        GameObject obj = Instantiate(prefab);
         currentBox = obj;
 
         // ⭐ DropBox取得
@@ -123,10 +108,6 @@ public class FurnitureSpawner : MonoBehaviour
     #region ===== デバッグ表示 =====
     void OnDrawGizmos()
     {
-        if (spawnPoint == null) return;
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(spawnPoint.position, spawnCheckRadius);
     }
     #endregion
 }

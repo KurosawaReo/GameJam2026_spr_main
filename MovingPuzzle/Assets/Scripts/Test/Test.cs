@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
 {
-    //    [SerializeField] LuggageSettingsList settings; //İ’èƒŠƒXƒg.
     [SerializeField] AnimSceneMove anim;
 
     void Start()
