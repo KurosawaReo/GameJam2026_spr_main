@@ -1,6 +1,7 @@
 /*
    ただのテスト。開発には使わない。
 */
+#if false
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,3 +40,4 @@ public class Test : MonoBehaviour
         Debug.Log(boxs[0].point);
     }
 }
+#endif

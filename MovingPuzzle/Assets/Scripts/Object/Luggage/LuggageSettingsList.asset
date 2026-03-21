@@ -93,3 +93,7 @@ MonoBehaviour:
     point: 16
     sprite: {fileID: 4317003517954495615, guid: 4d7308a83a119124f9ebd70129aa2a85, type: 3}
     prefab: {fileID: 6296641244026217756, guid: e08893dfdd7eced4b978a73bd9319ad4, type: 3}
+  - type: 20
+    point: 0
+    sprite: {fileID: 4317003517954495615, guid: 4d7308a83a119124f9ebd70129aa2a85, type: 3}
+    prefab: {fileID: 6296641244026217756, guid: e08893dfdd7eced4b978a73bd9319ad4, type: 3}

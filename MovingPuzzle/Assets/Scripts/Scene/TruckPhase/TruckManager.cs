@@ -3,27 +3,20 @@ using System.Collections.Generic;
 
 public class TruckManager : MonoBehaviour
 {
-
-    private void Start()
-    {
-        //ここに書いてるのはデバッグ用.
-
-        var boxs = AllSceneData.instance.GetCardboardBoxs();
-        Debug.Log("数:" + boxs.Count);
-        foreach (var box in boxs)
-        {
-            Debug.Log("ダンボール:" + box.point);
-        }
-    }
-
-    #region ===== 設定 =====
+    #region ===== 変数 =====
     [SerializeField] private Transform checkAreaCenter;
     [SerializeField] private Vector2 checkAreaSize = new Vector2(5f, 2f);
 
     // 検出するレイヤー
     [SerializeField] private LayerMask targetLayer;
-    #endregion
 
+    int gamePoint = 0; //ゲームのポイント.
+
+    //get, set.
+    public int GamePoint {
+        get => gamePoint; set => gamePoint = value;
+    }
+    #endregion
 
     #region ===== 更新 =====
     float timer = 0f;
@@ -58,7 +51,7 @@ public class TruckManager : MonoBehaviour
 
             if (box != null)
             {
-                Debug.Log("荷物が乗ってる: " + box.GetLuggageType());
+                Debug.Log("荷物が乗ってる: " + box.Type);
                 continue;
             }
 
@@ -67,7 +60,6 @@ public class TruckManager : MonoBehaviour
         }
     }
     #endregion
-
 
     #region ===== デバッグ表示 =====
     void OnDrawGizmos()
