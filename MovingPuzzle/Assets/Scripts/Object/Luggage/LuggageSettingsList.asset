@@ -16,60 +16,80 @@ MonoBehaviour:
   - type: 0
     point: 30
     sprite: {fileID: -1746912932888208630, guid: f4cee17d67cc4184dbb70a47e1add53d, type: 3}
+    prefab: {fileID: 8049682832109444404, guid: 4ee1a61e77068894aaf9c3d1884a5f2a, type: 3}
   - type: 1
     point: 18
     sprite: {fileID: 2122107185238573207, guid: 07a9c4a4bec87d54aab5aea886b6d5dc, type: 3}
+    prefab: {fileID: 1700285800899028996, guid: d2464c099a4247e47937cc8f5214cd83, type: 3}
   - type: 2
     point: 22
     sprite: {fileID: -8863779464223986014, guid: b25922b8fae2bec47809103d33e89173, type: 3}
+    prefab: {fileID: 5316464060418397613, guid: ec4af9b4351444b43b8c276a662e9f99, type: 3}
   - type: 3
     point: 4
     sprite: {fileID: 7679083508794041174, guid: c8afc51f08312e0409f04623a1e90c47, type: 3}
+    prefab: {fileID: 5004945634395802094, guid: c3ff164e0a5ef284c8ea54e9bc32b00e, type: 3}
   - type: 4
     point: 10
     sprite: {fileID: 357585243727820222, guid: a268306ac58eb314492af5087596e4f4, type: 3}
+    prefab: {fileID: 1444828949239173600, guid: a44c5ec92c6754948aac327433a81e28, type: 3}
   - type: 5
     point: 12
     sprite: {fileID: 4430006133060721969, guid: ba38ddf7155239641a625e4592deba92, type: 3}
+    prefab: {fileID: 6407402404990448381, guid: e4c5b720a8d21dd4ba29e5a1e537712b, type: 3}
   - type: 6
     point: 10
     sprite: {fileID: 8033975403568566451, guid: d4ceb10971412e04c85bf2c6c9aef996, type: 3}
+    prefab: {fileID: 4364017096300164796, guid: 5751f68f1427ad445b1c92d4533a8e17, type: 3}
   - type: 7
     point: 6
     sprite: {fileID: 4479906675594622744, guid: 3a7da11c530e32447b32337d57d9c860, type: 3}
+    prefab: {fileID: 1796749580869280766, guid: d821ea28276e6504eb174f3fd6d67e88, type: 3}
   - type: 8
     point: 15
     sprite: {fileID: 5311257241785471671, guid: c8e614ef05c6b8241aaf049b50076ea8, type: 3}
+    prefab: {fileID: 9025221821204323343, guid: e62a589f3c22c1742a374db9f1bc5293, type: 3}
   - type: 9
     point: 5
     sprite: {fileID: 1744921728391940866, guid: 566f281a43a939043923e5be53fc8d09, type: 3}
+    prefab: {fileID: 7439849752980267542, guid: 70eb6d88a82732649aa2170e569a61e3, type: 3}
   - type: 10
     point: 4
     sprite: {fileID: 3853515669415099730, guid: 65885ad4eea62604db02e691207faea4, type: 3}
+    prefab: {fileID: 125451718555388870, guid: 50791013273912441ad58d518bb27f44, type: 3}
   - type: 11
     point: 4
     sprite: {fileID: 3063841963128474276, guid: 0a5062e0de85af94db83ddd62e6f6346, type: 3}
+    prefab: {fileID: 2029607898384201407, guid: 5f994b6e977f2d24593f0144ed517e37, type: 3}
   - type: 12
     point: 30
     sprite: {fileID: -2152756542046952513, guid: dfdfdbded4d014b42be4f3b2fb009fac, type: 3}
+    prefab: {fileID: 650649946021452586, guid: e69ccef6f6a7f9c4ebd7c4a292942c3f, type: 3}
   - type: 13
     point: 5
     sprite: {fileID: 111648954039052082, guid: 7795a09103ffa674185d2a7d873fa2df, type: 3}
+    prefab: {fileID: 5047079723164614437, guid: 584e0222da643e4498b800a5a0ee8f8d, type: 3}
   - type: 14
     point: 20
     sprite: {fileID: -3527876879021525145, guid: 3fea8f25cd194eb4eb6f881961e8099b, type: 3}
+    prefab: {fileID: 5047079723164614437, guid: 584e0222da643e4498b800a5a0ee8f8d, type: 3}
   - type: 15
     point: 5
     sprite: {fileID: -2530768103833504371, guid: a9e836fe4224a7f44adc95444fc5ebc1, type: 3}
+    prefab: {fileID: 6317635450291450599, guid: 5f8884fcbfa459c4e8016d8ba79b5437, type: 3}
   - type: 16
     point: 30
     sprite: {fileID: -4167663028475635082, guid: e569b782b6e2eda43b7b03bd81252bbd, type: 3}
+    prefab: {fileID: 337817239553385901, guid: 7735a473eaa48024b811a1e7d42e9d7d, type: 3}
   - type: 17
     point: 25
     sprite: {fileID: -3578749811347107042, guid: 270621e3ded522c46a7e3d32ffafe244, type: 3}
+    prefab: {fileID: 3716843478260991421, guid: ad7908d370ca9214b9174fb087a888b9, type: 3}
   - type: 18
     point: 8
     sprite: {fileID: -4868476205444432284, guid: 08e96d572b1b36c4ba654ba761568831, type: 3}
+    prefab: {fileID: 164525495086334912, guid: 979819236be4d394fb66688976fc1a31, type: 3}
   - type: 19
     point: 16
     sprite: {fileID: 4317003517954495615, guid: 4d7308a83a119124f9ebd70129aa2a85, type: 3}
+    prefab: {fileID: 6296641244026217756, guid: e08893dfdd7eced4b978a73bd9319ad4, type: 3}

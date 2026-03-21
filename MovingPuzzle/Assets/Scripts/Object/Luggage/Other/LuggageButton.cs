@@ -45,6 +45,7 @@ public class LuggageButton : MonoBehaviour
     {
         if (spawner != null)
         {
+            Debug.Log("ugoita");
             spawner.SpawnFurniture(data);
         }
         else

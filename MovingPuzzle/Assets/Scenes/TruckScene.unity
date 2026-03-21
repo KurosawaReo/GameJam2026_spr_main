@@ -373,19 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2720d21e41bf6dc42a6c5c6f11cd72c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 1444828949239173600, guid: a44c5ec92c6754948aac327433a81e28, type: 3}
-  - {fileID: 4364017096300164796, guid: 5751f68f1427ad445b1c92d4533a8e17, type: 3}
-  - {fileID: 8049682832109444404, guid: 4ee1a61e77068894aaf9c3d1884a5f2a, type: 3}
-  - {fileID: 1700285800899028996, guid: d2464c099a4247e47937cc8f5214cd83, type: 3}
-  - {fileID: 5316464060418397613, guid: ec4af9b4351444b43b8c276a662e9f99, type: 3}
-  - {fileID: 6407402404990448381, guid: e4c5b720a8d21dd4ba29e5a1e537712b, type: 3}
-  - {fileID: 9025221821204323343, guid: e62a589f3c22c1742a374db9f1bc5293, type: 3}
-  - {fileID: 7723592822058349430, guid: a2ec14fb45d62564ba31c0db44d381eb, type: 3}
-  - {fileID: 3716843478260991421, guid: ad7908d370ca9214b9174fb087a888b9, type: 3}
-  - {fileID: 164525495086334912, guid: 979819236be4d394fb66688976fc1a31, type: 3}
-  spawnPoint: {fileID: 0}
-  spawnCheckRadius: 0.5
+  LuggageSettingsList: {fileID: 11400000, guid: f8ef34cac345e7f468b9340b05a9e6ad, type: 2}
 --- !u!4 &146929576
 Transform:
   m_ObjectHideFlags: 0
@@ -535,6 +523,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 7, y: 3.1362648}
   m_EdgeRadius: 0
+--- !u!1 &289084509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 289084510}
+  m_Layer: 0
+  m_Name: kari
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &289084510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289084509}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 122.03999, y: 144.71999, z: -9604.404}
+  m_LocalScale: {x: 108, y: 108, z: 108}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 964772081}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &310827820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -927,6 +946,7 @@ MonoBehaviour:
     type: 0
     point: 0
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   iconImage: {fileID: 75653220}
 --- !u!1 &630524240
 GameObject:
@@ -973,7 +993,7 @@ GameObject:
   - component: {fileID: 786431474}
   - component: {fileID: 786431475}
   m_Layer: 0
-  m_Name: ImageManager
+  m_Name: LuggageImageManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1179,6 +1199,7 @@ RectTransform:
   - {fileID: 1722816268}
   - {fileID: 630524241}
   - {fileID: 358816479}
+  - {fileID: 289084510}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1186,6 +1207,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1001747468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1001747470}
+  - component: {fileID: 1001747469}
+  m_Layer: 0
+  m_Name: RandomLuggageUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1001747469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001747468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92337a0b93dd3641b5ab5d2b8004a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 524797562}
+  - {fileID: 1763091031}
+  - {fileID: 1186454098}
+--- !u!4 &1001747470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001747468}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8405489, y: 1.0173316, z: 1.0703226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1022112343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1410,6 +1479,7 @@ MonoBehaviour:
     type: 8
     point: 0
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   iconImage: {fileID: 45380448}
 --- !u!1 &1217534670
 GameObject:
@@ -2135,6 +2205,7 @@ MonoBehaviour:
     type: 12
     point: 0
     sprite: {fileID: 0}
+    prefab: {fileID: 0}
   iconImage: {fileID: 910373122}
 --- !u!1 &1767865879
 GameObject:
@@ -2595,6 +2666,7 @@ SceneRoots:
   - {fileID: 964772081}
   - {fileID: 1767865880}
   - {fileID: 1571397116}
+  - {fileID: 1001747470}
   - {fileID: 786431474}
   - {fileID: 146929576}
   - {fileID: 1701084049}

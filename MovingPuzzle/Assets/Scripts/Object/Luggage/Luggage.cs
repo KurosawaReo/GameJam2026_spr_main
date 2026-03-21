@@ -50,7 +50,8 @@ public enum LuggageType
 [Serializable]
 public class Luggage
 {
-    public LuggageType type; //‚±‚Ì‰×•¨‚Í‰½‚©.
-    public int point;        //‚±‚Ì‰×•¨‚Í‰½point‚©.
-    public Sprite sprite;    //‚±‚Ì‰×•¨‚Ì‰æ‘œ.
+    public LuggageType type;   //‚±‚Ì‰×•¨‚Í‰½‚©.
+    public int         point;  //‚±‚Ì‰×•¨‚Í‰½point‚©.
+    public Sprite      sprite; //‚±‚Ì‰×•¨‚Ì‰æ‘œ.
+    public GameObject  prefab; //‚±‚Ì‰×•¨‚Ìprefab.
 }
