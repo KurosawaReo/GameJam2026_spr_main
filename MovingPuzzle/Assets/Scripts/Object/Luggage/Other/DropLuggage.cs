@@ -7,9 +7,13 @@ public class DropLuggage : MonoBehaviour
     private bool isHolding = true;
     private FurnitureSpawner spawner;
 
-    private LuggageType type; // 何の家具か
+    private LuggageType type;
+
+    [SerializeField] private float checkRadius = 0.5f;
+    [SerializeField] private LayerMask blockLayer; // ←追加
     #endregion
 
+    //settings notsettings track のレイヤー追加必須
 
     #region ===== 初期化 =====
     public void Init(FurnitureSpawner spawnerRef)
@@ -31,7 +35,6 @@ public class DropLuggage : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // 保険
         if (spawner == null)
         {
             spawner = FindAnyObjectByType<FurnitureSpawner>();
@@ -39,6 +42,7 @@ public class DropLuggage : MonoBehaviour
 
         rb.gravityScale = 0f;
         rb.bodyType = RigidbodyType2D.Kinematic;
+
         gameObject.layer = LayerMask.NameToLayer("notsettings");
     }
     #endregion
@@ -54,7 +58,7 @@ public class DropLuggage : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
-                Drop();
+                TryDrop(); // ←変更
             }
         }
         else
@@ -90,6 +94,31 @@ public class DropLuggage : MonoBehaviour
     #endregion
 
 
+    #region ===== 落下判定 =====
+    void TryDrop()
+    {
+        if (IsOverlapping())
+        {
+            Debug.Log("ここには置けない！");
+            return;
+        }
+
+        Drop();
+    }
+
+    bool IsOverlapping()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(
+            transform.position,
+            checkRadius,
+            blockLayer
+        );
+
+        return hit != null;
+    }
+    #endregion
+
+
     #region ===== 落下処理 =====
     void Drop()
     {
@@ -99,8 +128,6 @@ public class DropLuggage : MonoBehaviour
 
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 1.5f;
-
-        // 念のため回転のブレ軽減
         rb.angularVelocity = 0f;
 
         if (spawner != null)
@@ -113,16 +140,13 @@ public class DropLuggage : MonoBehaviour
         }
     }
     #endregion
-    #region =====乗ってるものチェック=====
 
-    #endregion
 
     #region ===== 範囲外チェック =====
     void CheckOutOfBounds()
     {
         if (transform.position.y < -5f)
         {
-            //  落ちたら戻す
             if (spawner != null)
             {
                 spawner.OnBoxLost(this);
@@ -130,6 +154,15 @@ public class DropLuggage : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+    #endregion
+
+
+    #region ===== デバッグ =====
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, checkRadius);
     }
     #endregion
 }

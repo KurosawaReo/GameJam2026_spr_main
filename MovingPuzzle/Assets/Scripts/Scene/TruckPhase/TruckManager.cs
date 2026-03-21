@@ -1,34 +1,27 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class TruckManager : MonoBehaviour
 {
-
-    private void Start()
-    {
-        //ここに書いてるのはデバッグ用.
-
-        var boxs = AllSceneData.instance.GetCardboardBoxs();
-        Debug.Log("数:" + boxs.Count);
-        foreach (var box in boxs)
-        {
-            Debug.Log("ダンボール:" + box.point);
-        }
-    }
-
     #region ===== 設定 =====
     [SerializeField] private Transform checkAreaCenter;
     [SerializeField] private Vector2 checkAreaSize = new Vector2(5f, 2f);
-
-    // 検出するレイヤー
     [SerializeField] private LayerMask targetLayer;
+
+    [SerializeField] private LuggageSettingsList settingsList;
+    #endregion
+
+
+    #region ===== 内部 =====
+    private HashSet<DropLuggage> detectedLuggage = new HashSet<DropLuggage>();
+
+    private float timer = 0f;
+    private float interval = 1f;
     #endregion
 
 
     #region ===== 更新 =====
-    float timer = 0f;
-    float interval = 1f; 
-
     void Update()
     {
         timer += Time.deltaTime;
@@ -41,9 +34,19 @@ public class TruckManager : MonoBehaviour
     }
     #endregion
 
-    #region ===== 判定処理 =====
+
+    #region ===== 判定 =====
     void CheckOnTruck()
     {
+        if (settingsList == null)
+        {
+            Debug.LogError("settingsListが未設定！");
+            return;
+        }
+
+       
+        detectedLuggage.RemoveWhere(l => l == null);
+
         Collider2D[] hits = Physics2D.OverlapBoxAll(
             checkAreaCenter.position,
             checkAreaSize,
@@ -53,23 +56,71 @@ public class TruckManager : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            // ダンボールか？
-            DropLuggage box = hit.GetComponent<DropLuggage>();
+            DropLuggage luggage = hit.GetComponent<DropLuggage>();
 
-            if (box != null)
-            {
-                Debug.Log("荷物が乗ってる: " + box.GetLuggageType());
-                continue;
-            }
+            if (luggage == null) continue;
 
-            // それ以外（ダンボール）
-            Debug.Log("ダンボールが乗ってる: " + hit.name);
+            if (!detectedLuggage.Add(luggage)) continue;
+
+            LuggageType type = luggage.GetLuggageType();
+
+            int point = settingsList.GetPoint(type);
+
+            AddScore(point, type.ToString());
         }
     }
     #endregion
 
 
-    #region ===== デバッグ表示 =====
+    #region ===== スコア =====
+    void AddScore(int point, string name)
+    {
+        if (point == 0)
+        {
+            Debug.LogWarning($"point未設定: {name}");
+        }
+
+        Debug.Log($"{name} → +{point}");
+
+        if (ScoreDataManager.instance != null)
+        {
+            ScoreDataManager.instance.AddScore(point);
+        }
+        else
+        {
+            Debug.LogError("ScoreDataManagerが存在しない！");
+        }
+    }
+    #endregion
+
+
+    #region ===== リザルト送信 =====
+    public void GoResult()
+    {
+        if (ScoreDataManager.instance == null)
+        {
+            Debug.LogError("ScoreDataManagerがない！");
+            return;
+        }
+
+        if (AllSceneData.instance == null)
+        {
+            Debug.LogError("AllSceneDataがない！");
+            return;
+        }
+
+        int score = ScoreDataManager.instance.GetScore();
+
+        AllSceneData.instance.ResultPoint = score;
+
+        Debug.Log("リザルト送信: " + score);
+
+        SceneManager.LoadScene("ResultScene");
+    }
+    #endregion
+
+
+    #region ===== デバッグ =====
     void OnDrawGizmos()
     {
         if (checkAreaCenter == null) return;
