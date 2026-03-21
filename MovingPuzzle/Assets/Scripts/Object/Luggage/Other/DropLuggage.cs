@@ -1,34 +1,36 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// トラックフェーズ用の荷物prefab(落下物)につけるscript
+/// </summary>
 public class DropLuggage : MonoBehaviour
 {
     #region ===== 変数 =====
-    private Rigidbody2D rb;
-    private bool isHolding = true;
-    private FurnitureSpawner spawner;
-
-    private LuggageType type;
+    private LuggageType      type;    //何の荷物か.
+    private CardboardBox     boxData; //段ボール箱データ(段ボール箱の場合)
 
     [SerializeField] private float checkRadius = 0.5f;
     [SerializeField] private LayerMask blockLayer; // ←追加
-    #endregion
 
     //settings notsettings track のレイヤー追加必須
 
+    private Rigidbody2D      rb;
+    private bool             isHolding = true;
+    private FurnitureSpawner spawner;
+    #endregion
+
+    //get, set.
+    public LuggageType Type { 
+        get => type; set => type = value; 
+    }
+    public CardboardBox BoxData { 
+        get => boxData; set => boxData = value; 
+    }
+
     #region ===== 初期化 =====
-    public void Init(FurnitureSpawner spawnerRef)
+    public void Init(FurnitureSpawner spawner)
     {
-        spawner = spawnerRef;
-    }
-
-    public void SetType(LuggageType t)
-    {
-        type = t;
-    }
-
-    public LuggageType GetLuggageType()
-    {
-        return type;
+        this.spawner = spawner;
     }
 
     void Start()
@@ -124,7 +126,7 @@ public class DropLuggage : MonoBehaviour
     {
         isHolding = false;
 
-        gameObject.layer = LayerMask.NameToLayer("settings");
+//        gameObject.layer = LayerMask.NameToLayer("settings");
 
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 1.5f;

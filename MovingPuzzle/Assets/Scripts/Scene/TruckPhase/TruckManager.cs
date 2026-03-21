@@ -4,22 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class TruckManager : MonoBehaviour
 {
-    #region ===== 設定 =====
+    #region ===== 変数 =====
     [SerializeField] private Transform checkAreaCenter;
     [SerializeField] private Vector2 checkAreaSize = new Vector2(5f, 2f);
     [SerializeField] private LayerMask targetLayer;
 
     [SerializeField] private LuggageSettingsList settingsList;
-    #endregion
-
-
-    #region ===== 内部 =====
-    private HashSet<DropLuggage> detectedLuggage = new HashSet<DropLuggage>();
-
     private float timer = 0f;
     private float interval = 1f;
-    #endregion
 
+    int gamePoint = 0; //ゲームのポイント.
+    private HashSet<DropLuggage> detectedLuggage = new HashSet<DropLuggage>();
+
+    //get, set.
+    public int GamePoint {
+        get => gamePoint; set => gamePoint = value;
+    }
+    #endregion
 
     #region ===== 更新 =====
     void Update()
@@ -59,10 +60,10 @@ public class TruckManager : MonoBehaviour
             DropLuggage luggage = hit.GetComponent<DropLuggage>();
 
             if (luggage == null) continue;
-
+            
             if (!detectedLuggage.Add(luggage)) continue;
 
-            LuggageType type = luggage.GetLuggageType();
+            LuggageType type = luggage.Type;
 
             int point = settingsList.GetPoint(type);
 
@@ -120,7 +121,7 @@ public class TruckManager : MonoBehaviour
     #endregion
 
 
-    #region ===== デバッグ =====
+    #region ===== デバッグ表示 =====
     void OnDrawGizmos()
     {
         if (checkAreaCenter == null) return;

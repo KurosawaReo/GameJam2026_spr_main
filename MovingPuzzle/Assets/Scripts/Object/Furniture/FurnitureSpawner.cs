@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if false
+using UnityEngine;
 
 /// <summary>
 /// トラックフェーズのスポナー.
@@ -118,3 +119,4 @@ public class FurnitureSpawner : MonoBehaviour
     }
     #endregion
 }
+#endif
