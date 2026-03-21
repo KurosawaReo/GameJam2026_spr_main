@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8e8bc179225e84ebe2a63129ac6dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 20
+  timeLimit: 10
   nextSceneName: TruckScene
   timerText: {fileID: 1731838189}
   animSceneIn: {fileID: 962051897}

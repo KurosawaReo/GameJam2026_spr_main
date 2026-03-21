@@ -31,6 +31,11 @@ public class FurnitureSpawner : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        Debug.Log("箱数:" + remainingBoxs.Count);
+    }
+
     /// <summary>
     /// ボタンの次の設定.
     /// </summary>
@@ -97,7 +102,7 @@ public class FurnitureSpawner : MonoBehaviour
             Debug.LogError("設置リストにPrefabが設定されてない！");
             return;
         }
-
+        
         //荷物prefab生成.
         {
             GameObject obj = Instantiate(prefab);
