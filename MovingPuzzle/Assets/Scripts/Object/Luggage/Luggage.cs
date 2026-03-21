@@ -39,8 +39,6 @@ public enum LuggageType
     Tv,               //テレビ.
     Umbrella,         //傘.
     VacuumCleaner,    //掃除機.
-
-    CardboardBox,     //段ボール箱.
 }
 
 /// <summary>

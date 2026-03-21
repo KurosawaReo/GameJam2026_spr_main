@@ -8,7 +8,7 @@ public class FurnitureSpawner : MonoBehaviour
     #region ===== 変数 =====
     public LuggageSettingsList LuggageSettingsList; //荷物設定リスト.
 
-    private GameObject currentBox;
+    private GameObject currentBox; //荷物を1つだけ選択できるようにする用.
     #endregion
 
 
@@ -87,7 +87,7 @@ public class FurnitureSpawner : MonoBehaviour
 
         if (ui != null)
         {
-            ui.ReturnToList(type);
+            ui.ReturnToList(type); //残りのリストに戻す.
         }
         else
         {
