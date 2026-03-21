@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// トラックフェーズのスポナー.
+/// </summary>
 public class FurnitureSpawner : MonoBehaviour
 {
     #region ===== 変数 =====

@@ -5,7 +5,7 @@ public class LuggageButton : MonoBehaviour
 {
     #region ===== 変数 =====
     public Luggage data = new Luggage();
-    public Image icon;
+    public Image iconImage; //子オブジェクトの画像.
 
     private RandomLuggageUI randomUI;
     private Button button;
@@ -65,7 +65,7 @@ public class LuggageButton : MonoBehaviour
     #region ===== アイコン更新 =====
     public void UpdateIcon()
     {
-        if (icon == null)
+        if (iconImage == null)
         {
             Debug.LogError("Iconが設定されてない！");
             return;
@@ -87,7 +87,7 @@ public class LuggageButton : MonoBehaviour
 
         if (sprite != null)
         {
-            icon.sprite = sprite;
+            iconImage.sprite = sprite;
         }
         else
         {
