@@ -14,27 +14,5 @@ public class LuggageManager : MonoBehaviour
         luggageList.Add(new Luggage { type = LuggageType.Desk, point = 20 });
     }
     #endregion
-    
-
-public class LuggageImageManager : MonoBehaviour
-{
-    #region ===== ‰æ‘œƒŠƒXƒg =====
-    public LuggageImageData[] imageList;
-    #endregion
-
-    #region ===== ‰æ‘œŽæ“¾ =====
-    public Sprite GetSprite(LuggageType type)
-    {
-        foreach (var data in imageList)
-        {
-            if (data.type == type)
-            {
-                return data.sprite;
-            }
-        }
-
-        return null;
-    }
-    #endregion
-}
+   
 }

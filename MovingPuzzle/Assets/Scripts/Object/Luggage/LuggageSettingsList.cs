@@ -17,6 +17,21 @@ public class LuggageSettingsList : ScriptableObject
     [SerializeField] List<Luggage> list; //荷物リスト.
 
     /// <summary>
+    /// 荷物データを取得.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    public Luggage GetLuggage(LuggageType type)
+    {
+        foreach (var item in list)
+        {
+            //一致する荷物を見つけたら荷物データを返す.
+            if (item.type == type) { return item; }
+        }
+        return null; //エラー.
+    }
+
+    /// <summary>
     /// 種類からpoint取得.
     /// </summary>
     public int GetPoint(LuggageType type)
