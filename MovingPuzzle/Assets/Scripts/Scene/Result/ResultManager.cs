@@ -14,7 +14,6 @@ public class ResultManager : MonoBehaviour
     {
         //ÉXÉRÉAì«Ç›çûÇ›.
         int score = AllSceneData.instance.ResultPoint;
-        Debug.Log("score" + score);
         txtScore.text = score + " point";
     }
 

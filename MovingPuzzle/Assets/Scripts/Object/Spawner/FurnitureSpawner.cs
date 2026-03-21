@@ -119,8 +119,15 @@ public class FurnitureSpawner : MonoBehaviour
                 //段ボール箱なら.
                 if (luggage.type == LuggageType.Box)
                 {
-                    //段ボール箱データを渡す.
-                    script.BoxData = remainingBoxs.Dequeue();
+                    if (remainingBoxs.Count > 0)
+                    {
+                        //段ボール箱にデータを渡す.
+                        script.BoxData = remainingBoxs.Dequeue();
+                    }
+                    else
+                    {
+                        Debug.LogError("箱がもうない！");
+                    }
                 }
             }
             else
