@@ -14,8 +14,7 @@ public class AllSceneData : MonoBehaviour
     int resultPoint;
 
     //get, set.
-    public int ResultPoint
-    {
+    public int ResultPoint { 
         get => resultPoint; set => resultPoint = value;
     }
 

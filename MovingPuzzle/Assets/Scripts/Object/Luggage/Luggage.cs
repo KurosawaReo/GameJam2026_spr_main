@@ -40,7 +40,7 @@ public enum LuggageType
     Umbrella,         //傘.
     VacuumCleaner,    //掃除機.
 
-    CardboardBox,     //段ボール箱.
+    Box,              //段ボール箱.
 }
 
 /// <summary>
