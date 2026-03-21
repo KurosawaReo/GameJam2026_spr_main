@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 段ボールフェーズのスポナー.
+/// </summary>
+
 public class LuggageSpawner : MonoBehaviour
 {
     public static LuggageSpawner Instance;

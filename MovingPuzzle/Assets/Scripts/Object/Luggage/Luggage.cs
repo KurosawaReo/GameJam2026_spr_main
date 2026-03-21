@@ -12,6 +12,7 @@
    l.point = 10;                //point‚Í10.
 */
 using System;
+using UnityEngine;
 
 /// <summary>
 /// ‰×•¨‚ÌŽí—Þ‚Í‰½‚ª‚ ‚é‚©.
@@ -51,4 +52,5 @@ public class Luggage
 {
     public LuggageType type; //‚±‚Ì‰×•¨‚Í‰½‚©.
     public int point;        //‚±‚Ì‰×•¨‚Í‰½point‚©.
+    public Sprite sprite;    //‚±‚Ì‰×•¨‚Ì‰æ‘œ.
 }
