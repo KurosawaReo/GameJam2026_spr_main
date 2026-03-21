@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1145833182110143078}
   - component: {fileID: 1960170459127351239}
   - component: {fileID: 1321249018427469877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: telescope_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

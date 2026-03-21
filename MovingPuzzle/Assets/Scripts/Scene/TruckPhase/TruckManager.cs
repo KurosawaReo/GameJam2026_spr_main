@@ -1,17 +1,34 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Linq;
 
 public class TruckManager : MonoBehaviour
 {
+    #region ===== 変数 - タイマー =====
+    [Header("タイマー設定")]
+    [Tooltip("制限時間（秒）")]
+    public float timeLimit = 60f;
+    [Tooltip("遷移先のシーン名")]
+    public string nextSceneName;
+    [Tooltip("残り時間を表示するUIテキスト")]
+    public Text timerText;
+
+    [Header("アニメーション")]
+    [SerializeField] AnimSceneMove animSceneIn;
+
+    private float currentTime;
+    private bool isFinished = false;
+    #endregion
+
     #region ===== 変数 =====
+    [Header("その他")]
     [SerializeField] private Transform checkAreaCenter;
     [SerializeField] private Vector2 checkAreaSize = new Vector2(5f, 2f);
     [SerializeField] private LayerMask targetLayer;
 
     [SerializeField] private LuggageSettingsList settingsList;
-    private float timer = 0f;
-    private float interval = 1f;
 
     int gamePoint = 0; //ゲームのポイント.
     private HashSet<DropLuggage> detectedLuggage = new HashSet<DropLuggage>();
@@ -22,21 +39,89 @@ public class TruckManager : MonoBehaviour
     }
     #endregion
 
+    void Start()
+    {
+        currentTime = timeLimit;
+        UpdateTimerUI();
+    }
+
     #region ===== 更新 =====
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= interval)
-        {
-            timer = 0f;
-            CheckOnTruck();
-        }
+        UpdateTimer();
     }
     #endregion
 
 
+    private void UpdateTimer()
+    {
+        //ゲーム中.
+        if (!isFinished)
+        {
+            currentTime -= Time.deltaTime;
+            if (currentTime <= 0f)
+            {
+                currentTime = 0f;
+                isFinished = true; //一度きり実行.
+                OnTimeUp();
+            }
+            UpdateTimerUI();
+        }
+        //終了後.
+        else
+        {
+            CheckOnTruck();
+
+            //アニメーション終了後、次のシーンへ.
+            if (animSceneIn.IsFinished())
+            {
+                NextScene();
+            }
+        }
+    }
+
+    /// <summary>
+    /// タイマー表示更新.
+    /// </summary>
+    void UpdateTimerUI()
+    {
+        if (timerText != null)
+        {
+            timerText.text = $"{Mathf.Ceil(currentTime)}";
+        }
+    }
+
+    /// <summary>
+    /// 時間切れになったら作動.
+    /// </summary>
+    void OnTimeUp()
+    {
+        //荷物の合計ポイントを計算.
+        CardboardBoxArea boxArea = FindFirstObjectByType<CardboardBoxArea>();
+        if (boxArea != null)
+        {
+            boxArea.UpdateTotalPoints();
+        }
+
+        animSceneIn.AnimExe(); //アニメーション実行.
+    }
+
+    /// <summary>
+    /// 次のシーンへ.
+    /// </summary>
+    public void NextScene()
+    {
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName); //シーン移動.
+        }
+    }
+
+
     #region ===== 判定 =====
+    /// <summary>
+    /// point集計.
+    /// </summary>
     void CheckOnTruck()
     {
         if (settingsList == null)
@@ -55,6 +140,7 @@ public class TruckManager : MonoBehaviour
             targetLayer
         );
 
+        //トラックに乗った荷物をループ.
         foreach (var hit in hits)
         {
             DropLuggage luggage = hit.GetComponent<DropLuggage>();
@@ -67,7 +153,15 @@ public class TruckManager : MonoBehaviour
 
             int point = settingsList.GetPoint(type);
 
-            AddScore(point, type.ToString());
+            AddScore(point, type.ToString()); //スコア加算.
+        }
+
+        //結果保存.
+        int score = ScoreDataManager.instance.GetScore();
+
+        if (AllSceneData.instance)
+        {
+            AllSceneData.instance.ResultPoint = score;        
         }
     }
     #endregion

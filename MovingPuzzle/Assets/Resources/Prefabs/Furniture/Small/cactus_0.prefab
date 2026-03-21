@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4129395455624753975}
   - component: {fileID: -8553939905586352879}
   - component: {fileID: -1915579200979954495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cactus_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,3 +221,5 @@ MonoBehaviour:
   luggageData:
     type: 10
     point: 0
+    sprite: {fileID: 0}
+    prefab: {fileID: 0}

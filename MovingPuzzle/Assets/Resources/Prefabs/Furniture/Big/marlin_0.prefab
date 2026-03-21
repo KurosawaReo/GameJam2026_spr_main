@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8082689657852658049}
   - component: {fileID: 9108956246285973377}
   - component: {fileID: 9018667192208768042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: marlin_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

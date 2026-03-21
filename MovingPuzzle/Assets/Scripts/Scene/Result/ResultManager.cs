@@ -1,10 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ResultManager : MonoBehaviour
 {
     [Header("- Animation -")]
     [SerializeField] AnimSceneMove animSceneIn;
+
+    [Header("- Text -")]
+    [SerializeField] Text txtScore;
+
+    private void Start()
+    {
+        //スコア読み込み.
+        int score = AllSceneData.instance.ResultPoint;
+        txtScore.text = score + " point";
+    }
 
     void Update()
     {
@@ -20,7 +31,6 @@ public class ResultManager : MonoBehaviour
     /// </summary>
     public void PushToTitle()
     {
-        Debug.Log("a");
         animSceneIn.AnimExe(); //アニメーション実行.
     }
 

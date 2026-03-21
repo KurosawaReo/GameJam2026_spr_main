@@ -48,7 +48,6 @@ public class LuggageButton : MonoBehaviour
     public void NextLuggage()
     {
         data.type = spawner.SetupButton(); //次の荷物を取得.
-        Debug.Log("type:" +data.type);
 
         if (iconImage == null)
         {

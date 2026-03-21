@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8404012121334470214}
   - component: {fileID: 9999891040142219}
   - component: {fileID: -8710828043572839799}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shirt_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,3 +226,5 @@ MonoBehaviour:
   luggageData:
     type: 15
     point: 0
+    sprite: {fileID: 0}
+    prefab: {fileID: 0}

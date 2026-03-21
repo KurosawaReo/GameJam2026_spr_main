@@ -31,10 +31,12 @@ public class FurnitureSpawner : MonoBehaviour
         }
     }
 
+#if false
     private void Update()
     {
         Debug.Log("箱数:" + remainingBoxs.Count);
     }
+#endif
 
     /// <summary>
     /// ボタンの次の設定.
@@ -75,7 +77,7 @@ public class FurnitureSpawner : MonoBehaviour
         return true;
     }
 #endif
-    #endregion
+#endregion
 
 
     #region ===== 荷物生成 =====
@@ -117,8 +119,15 @@ public class FurnitureSpawner : MonoBehaviour
                 //段ボール箱なら.
                 if (luggage.type == LuggageType.Box)
                 {
-                    //段ボール箱データを渡す.
-                    script.BoxData = remainingBoxs.Dequeue();
+                    if (remainingBoxs.Count > 0)
+                    {
+                        //段ボール箱にデータを渡す.
+                        script.BoxData = remainingBoxs.Dequeue();
+                    }
+                    else
+                    {
+                        Debug.LogError("箱がもうない！");
+                    }
                 }
             }
             else

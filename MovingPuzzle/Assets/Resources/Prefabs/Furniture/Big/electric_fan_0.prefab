@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3298994236780937354}
   - component: {fileID: -5670420653947963891}
   - component: {fileID: 6655589266866985299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electric_fan_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

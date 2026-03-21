@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3129601122999590947}
   - component: {fileID: -3425321175669758579}
   - component: {fileID: -5408289848098891919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b22954b8ab57a4386a2130e9fcee31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkRadius: 0.5
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &-3425321175669758579
 Rigidbody2D:
   serializedVersion: 5

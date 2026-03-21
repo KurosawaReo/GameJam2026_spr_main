@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2683853344621285482}
   - component: {fileID: -5878724260070725213}
   - component: {fileID: -3794658209276990923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: balance_ball_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
