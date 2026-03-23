@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2720d21e41bf6dc42a6c5c6f11cd72c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LuggageSettingsList: {fileID: 11400000, guid: f8ef34cac345e7f468b9340b05a9e6ad, type: 2}
+  luggageSettingsList: {fileID: 11400000, guid: f8ef34cac345e7f468b9340b05a9e6ad, type: 2}
   bigLuggageTypes: 000000000100000002000000040000000500000006000000080000000c000000100000001100000013000000
 --- !u!4 &146929576
 Transform:
@@ -1897,9 +1897,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f169c559dcd3bf04084fdd186ef74dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 10
+  timeLimit: 30.4
   nextSceneName: ResultScene
   timerText: {fileID: 2071116965}
+  pointText: {fileID: 927644626}
   animSceneIn: {fileID: 1171275786}
   checkAreaCenter: {fileID: 358816479}
   checkAreaSize: {x: 14.9, y: 8.92}

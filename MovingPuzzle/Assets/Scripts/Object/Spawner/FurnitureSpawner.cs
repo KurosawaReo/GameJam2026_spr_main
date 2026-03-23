@@ -8,7 +8,7 @@ public class FurnitureSpawner : MonoBehaviour
 {
     #region ===== 変数 =====
     [Header("- luggage -")]
-    [SerializeField] LuggageSettingsList LuggageSettingsList; //荷物設定リスト.
+    [SerializeField] LuggageSettingsList luggageSettingsList; //荷物設定リスト.
 
     [Header("- value -")]
     [SerializeField] LuggageType[] bigLuggageTypes; //大きい荷物抽選リスト.
@@ -31,54 +31,31 @@ public class FurnitureSpawner : MonoBehaviour
         }
     }
 
-#if false
-    private void Update()
-    {
-        Debug.Log("箱数:" + remainingBoxs.Count);
-    }
-#endif
-
     /// <summary>
     /// ボタンの次の設定.
     /// </summary>
     /// <returns>次の種類</returns>
-    public LuggageType SetupButton()
+    public (LuggageType, CardboardBox) SetupButton()
     {
         int rnd = Random.Range(0, 99+1);
 
         //50%の確率, かつ段ボール箱が残っていれば.
         if (rnd < 50 && remainingBoxs.Count > 0)
         {
-            return LuggageType.Box; //段ボール箱.
+            var type = LuggageType.Box;         //種類は段ボール箱.
+            var box  = remainingBoxs.Dequeue(); //段ボール箱データを取り出す.
+            return (type, box); 
         }
         else
         {
-            int idx = Random.Range(0, bigLuggageTypes.Length-1); //大きい荷物の中から抽選.
-            return bigLuggageTypes[idx];
+            //大きい荷物の中から抽選.
+            int idx  = Random.Range(0, bigLuggageTypes.Length-1);
+            var type = bigLuggageTypes[idx];
+            //必要ないため空を送る.
+            var box  = new CardboardBox();
+            return (type, box);
         }
     }
-
-    #region ===== 生成位置チェック =====
-
-#if false
-    bool CanSpawnHere(Vector3 pos)
-    {
-        // ⭐ Luggageレイヤーだけ検出
-        int layerMask = LayerMask.GetMask("Placed");
-
-        Collider2D hit = Physics2D.OverlapCircle(pos, spawnCheckRadius, layerMask);
-
-        if (hit != null)
-        {
-            Debug.Log("ここには出せない！（既に物がある）");
-            return false;
-        }
-
-        return true;
-    }
-#endif
-#endregion
-
 
     #region ===== 荷物生成 =====
 
@@ -86,7 +63,7 @@ public class FurnitureSpawner : MonoBehaviour
     /// 荷物生成.
     /// </summary>
     /// <param name="luggage">荷物データ</param>
-    public void Spawn(Luggage luggage)
+    public void Spawn(Luggage luggage, CardboardBox box)
     {
         //出現は同時に1個だけ.
         if (nowLuggage != null) return;
@@ -98,7 +75,7 @@ public class FurnitureSpawner : MonoBehaviour
         }
 
         //設置リストからprefab取得.
-        GameObject prefab = LuggageSettingsList.GetLuggage(luggage.type).prefab;
+        GameObject prefab = luggageSettingsList.GetLuggage(luggage.type).prefab;
         if (prefab == null)
         {
             Debug.LogError("設置リストにPrefabが設定されてない！");
@@ -119,15 +96,8 @@ public class FurnitureSpawner : MonoBehaviour
                 //段ボール箱なら.
                 if (luggage.type == LuggageType.Box)
                 {
-                    if (remainingBoxs.Count > 0)
-                    {
-                        //段ボール箱にデータを渡す.
-                        script.BoxData = remainingBoxs.Dequeue();
-                    }
-                    else
-                    {
-                        Debug.LogError("箱がもうない！");
-                    }
+                    //段ボール箱にデータを渡す.
+                    script.BoxData = box;
                 }
             }
             else

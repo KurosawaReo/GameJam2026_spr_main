@@ -11,10 +11,12 @@ public class LuggageButton : MonoBehaviour
     [SerializeField] FurnitureSpawner    spawner;
     [SerializeField] LuggageImageManager imageManager;
 
-    private Luggage data = new(); //荷物データ.
+    Luggage      luggageData = new(); //荷物データ.
+    CardboardBox boxData     = new(); //段ボール箱データ.
 
     //get, set.
-    public Luggage Data { get => data; set => data = value; }
+    public Luggage      LuggageData { get => luggageData; set => luggageData = value; }
+    public CardboardBox BoxData     { get => boxData; set => boxData = value; }
     #endregion
 
     #region ===== 初期化 =====
@@ -30,8 +32,8 @@ public class LuggageButton : MonoBehaviour
         //ボタンを押したら.
         if (spawner != null)
         {
-            spawner.Spawn(data); //荷物生成.
-            NextLuggage();       //次の荷物を選択.
+            spawner.Spawn(luggageData, boxData); //荷物生成.
+            NextLuggage();                       //次の荷物を選択.
         }
         else
         {
@@ -47,7 +49,8 @@ public class LuggageButton : MonoBehaviour
     /// </summary>
     public void NextLuggage()
     {
-        data.type = spawner.SetupButton(); //次の荷物を取得.
+        //次の荷物を取得.
+        (luggageData.type, boxData) = spawner.SetupButton();
 
         if (iconImage == null)
         {
@@ -61,7 +64,7 @@ public class LuggageButton : MonoBehaviour
         }
 
         //画像取得.
-        Sprite sprite = imageManager.GetSprite(data.type);
+        Sprite sprite = imageManager.GetSprite(luggageData.type);
 
         if (sprite != null)
         {
@@ -69,7 +72,7 @@ public class LuggageButton : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("対応する画像がない: " + data.type);
+            Debug.LogWarning("対応する画像がない: " + luggageData.type);
         }
     }
     #endregion

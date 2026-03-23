@@ -10,11 +10,14 @@ public class ResultManager : MonoBehaviour
     [Header("- Text -")]
     [SerializeField] Text txtScore;
 
-    private void Start()
+    void Start()
     {
         //スコア読み込み.
-        int score = AllSceneData.instance.ResultPoint;
-        txtScore.text = score + " point";
+        if (AllSceneData.instance)
+        {
+            int score = AllSceneData.instance.ResultPoint;
+            txtScore.text = score + " point";
+        }
     }
 
     void Update()
@@ -31,6 +34,8 @@ public class ResultManager : MonoBehaviour
     /// </summary>
     public void PushToTitle()
     {
+        AllSceneData.instance.ResultPoint = 0; //リセット.
+
         animSceneIn.AnimExe(); //アニメーション実行.
     }
 

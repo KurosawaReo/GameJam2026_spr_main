@@ -23,7 +23,6 @@ public class ScoreDataManager : MonoBehaviour
     public void AddScore(int point)
     {
         totalScore += point;
-        Debug.Log("合計スコア: " + totalScore);
     }
     #endregion
 
