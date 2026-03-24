@@ -34,7 +34,6 @@ public class TruckManager : MonoBehaviour
     [SerializeField] private LuggageSettingsList settingsList;
 
     int gamePoint = 0; //ゲームのポイント.
-    private HashSet<DropLuggage> detectedLuggage = new HashSet<DropLuggage>();
 
     //get, set.
     public int GamePoint {
@@ -93,13 +92,6 @@ public class TruckManager : MonoBehaviour
     /// </summary>
     void OnTimeUp()
     {
-        //荷物の合計ポイントを計算.
-        CardboardBoxArea boxArea = FindFirstObjectByType<CardboardBoxArea>();
-        if (boxArea != null)
-        {
-            boxArea.UpdateTotalPoints();
-        }
-
         animSceneIn.AnimExe(); //アニメーション実行.
     }
 
@@ -127,8 +119,6 @@ public class TruckManager : MonoBehaviour
             return;
         }
        
-        detectedLuggage.RemoveWhere(l => l == null);
-
         Collider2D[] hits = Physics2D.OverlapBoxAll(
             checkAreaCenter.position,
             checkAreaSize,
@@ -136,46 +126,26 @@ public class TruckManager : MonoBehaviour
             targetLayer
         );
 
-        //トラックに乗った荷物をループ.
+        //ポイント計測用.
+        int totalPoint = 0;
+        //トラックに乗った荷物をループ.\
+
         foreach (var hit in hits)
         {
             DropLuggage luggage = hit.GetComponent<DropLuggage>();
 
             if (luggage == null) continue;
-            
-            if (!detectedLuggage.Add(luggage)) continue;
 
-            LuggageType type = luggage.Type;
-
-            int point = settingsList.GetPoint(type);
-
-            AddScore(point, type.ToString()); //スコア加算.
+            //スコア加算.
+            totalPoint += settingsList.GetPoint(luggage.Type);
         }
 
-        int score = ScoreDataManager.instance.GetScore();
         //point表示.
-        pointText.text = "point: " + score;
+        pointText.text = "point: " + totalPoint;
         //全シーンデータへの保存.
         if (AllSceneData.instance)
         {
-            AllSceneData.instance.ResultPoint = score;
-        }
-    }
-    #endregion
-
-
-    #region ===== スコア =====
-    void AddScore(int point, string name)
-    {
-//        Debug.Log($"{name} → +{point}");
-
-        if (ScoreDataManager.instance != null)
-        {
-            ScoreDataManager.instance.AddScore(point);
-        }
-        else
-        {
-            Debug.LogError("ScoreDataManagerが存在しない！");
+            AllSceneData.instance.TotalPoint = totalPoint;
         }
     }
     #endregion

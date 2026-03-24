@@ -1,6 +1,6 @@
 /*
    - KR.Position - (Unity)
-   ver.2025/11/09
+   ver.2026/03/24
 */
 using UnityEngine;
 
@@ -30,9 +30,9 @@ namespace KR.Unity.Position
     }
 
     /// <summary>
-    /// PositionŠÖ”.
+    /// staticŠÖ”.
     /// </summary>
-    public static class PS_Func
+    public static class Func
     {
         /// <summary>
         /// ‰æ–Ê‚Ìã‰º¶‰E‚ÌÀ•W‚ğæ“¾.

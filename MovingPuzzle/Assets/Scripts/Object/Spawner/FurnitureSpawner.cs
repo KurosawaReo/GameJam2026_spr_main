@@ -92,6 +92,7 @@ public class FurnitureSpawner : MonoBehaviour
             {
                 script.Init(this);
                 script.Type = luggage.type;
+                script.FollowMouse(); //マウスの座標へ.
 
                 //段ボール箱なら.
                 if (luggage.type == LuggageType.Box)

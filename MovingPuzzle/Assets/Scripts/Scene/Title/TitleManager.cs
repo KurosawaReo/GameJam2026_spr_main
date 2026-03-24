@@ -8,7 +8,7 @@ public class TitleManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("point" + AllSceneData.instance?.ResultPoint);
+        Debug.Log("point" + AllSceneData.instance?.TotalPoint);
     }
 
     void Update()

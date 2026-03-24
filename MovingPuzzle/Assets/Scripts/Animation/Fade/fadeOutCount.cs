@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class fadeOutCount : MonoBehaviour
 {
-    timer timemanager;
+    Timer timemanager;
 
     [SerializeField] Text countText;
 
@@ -15,7 +15,7 @@ public class fadeOutCount : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        timemanager = FindFirstObjectByType<timer>();
+        timemanager = FindFirstObjectByType<Timer>();
         image = GetComponent<Image>();
         countText.text = "";
         FadeOut();

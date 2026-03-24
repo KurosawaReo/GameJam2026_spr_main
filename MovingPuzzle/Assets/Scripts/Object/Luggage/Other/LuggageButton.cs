@@ -42,7 +42,6 @@ public class LuggageButton : MonoBehaviour
     }
     #endregion
 
-
     #region ===== 荷物 =====
     /// <summary>
     /// 次の荷物を選択.

@@ -72,7 +72,7 @@ public class DropLuggage : MonoBehaviour
 
 
     #region ===== マウス追従 =====
-    void FollowMouse()
+    public void FollowMouse()
     {
         Vector3 mouse = Input.mousePosition;
         mouse.z = 10f;

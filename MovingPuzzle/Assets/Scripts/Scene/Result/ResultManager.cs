@@ -15,7 +15,7 @@ public class ResultManager : MonoBehaviour
         //スコア読み込み.
         if (AllSceneData.instance)
         {
-            int score = AllSceneData.instance.ResultPoint;
+            int score = AllSceneData.instance.TotalPoint;
             txtScore.text = score + " point";
         }
     }
@@ -34,7 +34,7 @@ public class ResultManager : MonoBehaviour
     /// </summary>
     public void PushToTitle()
     {
-        AllSceneData.instance.ResultPoint = 0; //リセット.
+        AllSceneData.instance.TotalPoint = 0; //リセット.
 
         animSceneIn.AnimExe(); //アニメーション実行.
     }

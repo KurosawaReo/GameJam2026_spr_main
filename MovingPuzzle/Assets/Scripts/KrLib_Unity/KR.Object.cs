@@ -1,6 +1,6 @@
 /*
    - KR.Object - (Unity)
-   ver.2026/03/20
+   ver.2026/03/24
 */
 using UnityEngine;
 using UE = UnityEngine;
@@ -26,16 +26,16 @@ namespace KR.Unity.Object
     }
 
     /// <summary>
-    /// Object関数.
+    /// static関数.
     /// </summary>
-    public static class OB_Func
+    public static class Func
     {
         /// <summary>
         /// 指定された名前の子オブジェクトを検索して返す.
         /// </summary>
-        public static Transform FindChildByName(this Transform PosA, string name)
+        public static Transform FindChildByName(this Transform parent, string name)
         {
-            foreach (Transform child in PosA)
+            foreach (Transform child in parent)
             {
                 if (child.name == name)
                 {
@@ -204,7 +204,7 @@ namespace KR.Unity.Object
         {
             //移動.
             Pos += vec * speed * Time.deltaTime;
-            Pos = PS_Func.FixPosInArea(pos, size, lim); //移動限界.
+            Pos = Position.Func.FixPosInArea(pos, size, lim); //移動限界.
             //方向の保存.
             facing = vec;
         }
