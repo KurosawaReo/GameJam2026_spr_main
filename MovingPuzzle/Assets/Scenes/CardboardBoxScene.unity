@@ -218,6 +218,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1003190752663867692, guid: c4473259ca983234fbda0cb21af9250b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003190752663867692, guid: c4473259ca983234fbda0cb21af9250b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003190752663867692, guid: c4473259ca983234fbda0cb21af9250b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1519552663310438076, guid: c4473259ca983234fbda0cb21af9250b, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1020,6 +1032,10 @@ PrefabInstance:
     - target: {fileID: 5071257120827988425, guid: 20294737d47c45c49bf41f919c96b2fe, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978192989935015007, guid: 20294737d47c45c49bf41f919c96b2fe, type: 3}
+      propertyPath: bgmData.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
