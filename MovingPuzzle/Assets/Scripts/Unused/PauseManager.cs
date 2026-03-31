@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class pause : MonoBehaviour
+public class PauseManager : MonoBehaviour
 {
-    timer timeManager;
+    Timer timeManager;
 
     [SerializeField] GameObject PausePanel;
 
@@ -11,7 +11,7 @@ public class pause : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        timeManager = FindFirstObjectByType<timer>();
+        timeManager = FindFirstObjectByType<Timer>();
         PausePanel.SetActive(false);
     }
 

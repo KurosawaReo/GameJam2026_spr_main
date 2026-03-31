@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /// </summary>
 public class CardboardPhaseMng : MonoBehaviour
 {
-    [Header("タイマー設定")]
+    [Header("- Timer -")]
     [Tooltip("制限時間（秒）")]
     public float timeLimit = 60f;
     [Tooltip("遷移先のシーン名")]
@@ -15,7 +15,7 @@ public class CardboardPhaseMng : MonoBehaviour
     [Tooltip("残り時間を表示するUIテキスト（任意）")]
     public Text timerText;
 
-    [Header("アニメーション")]
+    [Header("- Animation -")]
     [SerializeField] AnimSceneMove animSceneIn;
 
     private float currentTime;

@@ -7,15 +7,18 @@ using System.Linq;
 public class TruckManager : MonoBehaviour
 {
     #region ===== 変数 - タイマー =====
-    [Header("タイマー設定")]
-    [Tooltip("制限時間（秒）")]
-    public float timeLimit = 60f;
+    [Header("- Timer -")]
+    [Tooltip("制限時間(秒)")]
+    [SerializeField] float timeLimit = 60f;
     [Tooltip("遷移先のシーン名")]
-    public string nextSceneName;
-    [Tooltip("残り時間を表示するUIテキスト")]
-    public Text timerText;
+    [SerializeField] string nextSceneName;
 
-    [Header("アニメーション")]
+    [Header("- Text -")]
+    [Tooltip("残り時間を表示するUIテキスト")]
+    [SerializeField] Text timerText;
+    [SerializeField] Text pointText;
+
+    [Header("- Animation -")]
     [SerializeField] AnimSceneMove animSceneIn;
 
     private float currentTime;
@@ -31,7 +34,6 @@ public class TruckManager : MonoBehaviour
     [SerializeField] private LuggageSettingsList settingsList;
 
     int gamePoint = 0; //ゲームのポイント.
-    private HashSet<DropLuggage> detectedLuggage = new HashSet<DropLuggage>();
 
     //get, set.
     public int GamePoint {
@@ -48,13 +50,8 @@ public class TruckManager : MonoBehaviour
     #region ===== 更新 =====
     void Update()
     {
-        UpdateTimer();
-    }
-    #endregion
+        CheckOnTruck();
 
-
-    private void UpdateTimer()
-    {
         //ゲーム中.
         if (!isFinished)
         {
@@ -70,8 +67,6 @@ public class TruckManager : MonoBehaviour
         //終了後.
         else
         {
-            CheckOnTruck();
-
             //アニメーション終了後、次のシーンへ.
             if (animSceneIn.IsFinished())
             {
@@ -79,6 +74,7 @@ public class TruckManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
     /// <summary>
     /// タイマー表示更新.
@@ -96,13 +92,6 @@ public class TruckManager : MonoBehaviour
     /// </summary>
     void OnTimeUp()
     {
-        //荷物の合計ポイントを計算.
-        CardboardBoxArea boxArea = FindFirstObjectByType<CardboardBoxArea>();
-        if (boxArea != null)
-        {
-            boxArea.UpdateTotalPoints();
-        }
-
         animSceneIn.AnimExe(); //アニメーション実行.
     }
 
@@ -129,10 +118,7 @@ public class TruckManager : MonoBehaviour
             Debug.LogError("settingsListが未設定！");
             return;
         }
-
        
-        detectedLuggage.RemoveWhere(l => l == null);
-
         Collider2D[] hits = Physics2D.OverlapBoxAll(
             checkAreaCenter.position,
             checkAreaSize,
@@ -140,80 +126,29 @@ public class TruckManager : MonoBehaviour
             targetLayer
         );
 
-        //トラックに乗った荷物をループ.
+        //ポイント計測用.
+        int totalPoint = 0;
+        //トラックに乗った荷物をループ.\
+
         foreach (var hit in hits)
         {
             DropLuggage luggage = hit.GetComponent<DropLuggage>();
 
             if (luggage == null) continue;
-            
-            if (!detectedLuggage.Add(luggage)) continue;
 
-            LuggageType type = luggage.Type;
-
-            int point = settingsList.GetPoint(type);
-
-            AddScore(point, type.ToString()); //スコア加算.
+            //スコア加算.
+            totalPoint += settingsList.GetPoint(luggage.Type);
         }
 
-        //結果保存.
-        int score = ScoreDataManager.instance.GetScore();
-
+        //point表示.
+        pointText.text = "point: " + totalPoint;
+        //全シーンデータへの保存.
         if (AllSceneData.instance)
         {
-            AllSceneData.instance.ResultPoint = score;        
+            AllSceneData.instance.TotalPoint = totalPoint;
         }
     }
     #endregion
-
-
-    #region ===== スコア =====
-    void AddScore(int point, string name)
-    {
-        if (point == 0)
-        {
-            Debug.LogWarning($"point未設定: {name}");
-        }
-
-        Debug.Log($"{name} → +{point}");
-
-        if (ScoreDataManager.instance != null)
-        {
-            ScoreDataManager.instance.AddScore(point);
-        }
-        else
-        {
-            Debug.LogError("ScoreDataManagerが存在しない！");
-        }
-    }
-    #endregion
-
-
-    #region ===== リザルト送信 =====
-    public void GoResult()
-    {
-        if (ScoreDataManager.instance == null)
-        {
-            Debug.LogError("ScoreDataManagerがない！");
-            return;
-        }
-
-        if (AllSceneData.instance == null)
-        {
-            Debug.LogError("AllSceneDataがない！");
-            return;
-        }
-
-        int score = ScoreDataManager.instance.GetScore();
-
-        AllSceneData.instance.ResultPoint = score;
-
-        Debug.Log("リザルト送信: " + score);
-
-        SceneManager.LoadScene("ResultScene");
-    }
-    #endregion
-
 
     #region ===== デバッグ表示 =====
     void OnDrawGizmos()

@@ -11,11 +11,11 @@ public class AllSceneData : MonoBehaviour
     //完成した段ボール箱.
     Queue<CardboardBox> boxs = new Queue<CardboardBox>();
     //最終ポイント.
-    int resultPoint;
+    int totalPoint;
 
     //get, set.
-    public int ResultPoint { 
-        get => resultPoint; set => resultPoint = value;
+    public int TotalPoint { 
+        get => totalPoint; set => totalPoint = value;
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ public class AllSceneData : MonoBehaviour
             Destroy(this);
         }
     }
-
+    
     /// <summary>
     /// 完成した段ボール箱を追加.
     /// </summary>

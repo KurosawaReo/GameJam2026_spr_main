@@ -14,7 +14,7 @@ public enum ASMType
 /// <summary>
 /// シーン遷移する時のアニメーション.
 /// </summary>
-public class AnimSceneMove : AnimationKR
+public class AnimSceneMove : AnimProgKR
 {
     [Header("- object -")]
     [SerializeField] GameObject square;

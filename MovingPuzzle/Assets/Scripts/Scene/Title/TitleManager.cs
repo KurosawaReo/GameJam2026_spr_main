@@ -5,7 +5,11 @@ public class TitleManager : MonoBehaviour
 {
     [Header("- Animation -")]
     [SerializeField] AnimSceneMove animSceneIn;
-    
+
+    void Start()
+    {
+    }
+
     void Update()
     {
         //アニメーション終了後、次のシーンへ.

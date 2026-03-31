@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using KR.Unity.Object;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// 段ボール箱の管理.
@@ -9,7 +11,7 @@ public class CardboardBoxMng : MonoBehaviour
 {
     public static CardboardBoxMng Instance;
 
-    [Header("設定")]
+    [Header("- Setting -")]
     [Tooltip("新しく生成する段ボール箱のプレハブ")]
     public GameObject cardboardBoxPrefab;
     [Tooltip("段ボールが定位置にあるときの座標を示すための空オブジェクト（指定がなければ現在位置を利用）")]
@@ -18,11 +20,14 @@ public class CardboardBoxMng : MonoBehaviour
     public Transform offscreenPositionOut;
     public Transform offscreenPositionIn;
     
-    [Header("UI連携")]
+    [Header("- UI -")]
     [Tooltip("次の箱へ進むアクションをトリガーするボタン")]
-    public Button nextBoxButton;
+    public UnityEngine.UI.Button nextBoxButton;
     [Tooltip("移動にかかる時間（秒）")]
     public float transitionDuration = 1.0f;
+
+    [Header("- Object -")]
+    [SerializeField] PrefabKR compCardboardBox; //完成した段ボール箱.
 
     [HideInInspector]
     public CardboardBoxArea currentBoxArea;
@@ -90,9 +95,23 @@ public class CardboardBoxMng : MonoBehaviour
             if (AllSceneData.instance != null)
             {
                 AllSceneData.instance.AddCardboardBox(oldBox.BoxData);
-                Debug.Log($"箱を AllSceneData に格納しました（合計ポイント: {oldBox.BoxData.point}）");
             }
-            
+
+            /*
+            [TODO] 完成した段ボール箱をUIとして表示する.
+
+            //prefab生成.
+            GameObject obj = compCardboardBox.NewPrefab();
+            //script取得.
+            DropLuggage script = obj.GetComponent<DropLuggage>();
+
+            if (script != null)
+            {
+                script.Type    = LuggageType.Box; //種類は段ボール箱.
+                script.BoxData = oldBox.BoxData;  //段ボール箱データを渡す.
+            }
+            */
+
             // --- 補充処理：今回送った荷物と「全く同じ数だけ」新しく追加して上限を保つ ---
             if (LuggageSpawner.Instance != null)
             {
@@ -103,7 +122,6 @@ public class CardboardBoxMng : MonoBehaviour
                 if (amountToSpawn > 0)
                 {
                     LuggageSpawner.Instance.SpawnLuggages(amountToSpawn);
-                    Debug.Log($"箱に {amountToSpawn} 個の家具を入れて送りました。同じ数を補充しました。");
                 }
             }
             
