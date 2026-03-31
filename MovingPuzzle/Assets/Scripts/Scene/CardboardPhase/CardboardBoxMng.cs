@@ -97,6 +97,9 @@ public class CardboardBoxMng : MonoBehaviour
                 AllSceneData.instance.AddCardboardBox(oldBox.BoxData);
             }
 
+            /*
+            [TODO] 完成した段ボール箱をUIとして表示する.
+
             //prefab生成.
             GameObject obj = compCardboardBox.NewPrefab();
             //script取得.
@@ -107,10 +110,7 @@ public class CardboardBoxMng : MonoBehaviour
                 script.Type    = LuggageType.Box; //種類は段ボール箱.
                 script.BoxData = oldBox.BoxData;  //段ボール箱データを渡す.
             }
-            else
-            {
-                Debug.LogError("DropLuggageがついてない！");
-            }
+            */
 
             // --- 補充処理：今回送った荷物と「全く同じ数だけ」新しく追加して上限を保つ ---
             if (LuggageSpawner.Instance != null)

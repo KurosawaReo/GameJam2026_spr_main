@@ -1,6 +1,6 @@
 /*
    - KR.Object - (Unity)
-   ver.2026/03/24
+   ver.2026/03/31
 */
 using UnityEngine;
 using UE = UnityEngine;
@@ -47,7 +47,8 @@ namespace KR.Unity.Object
     }
 
     /// <summary>
-    /// オブジェクトデータ(2D用)[継承想定]
+    /// [継承想定]
+    /// オブジェクトデータ(2D用)
     /// </summary>
     [RequireComponent(typeof(SpriteRenderer))]
     public class ObjectKR : MonoBehaviour
@@ -276,7 +277,7 @@ namespace KR.Unity.Object
         /// </summary>
         public T TryGet<T>(T value)
         {
-            return VA_Func.TryGet(value, "[ObjectKR] InitObjKR関数を実行していません");
+            return Variable.Func.TryGet(value, "[ObjectKR] InitObjKR関数を実行していません");
         }
     }
 
@@ -294,8 +295,14 @@ namespace KR.Unity.Object
         /// <returns>作成したprefab</returns>
         public GameObject NewPrefab()
         {
-            var obj = UE.Object.Instantiate(prefab);  //生成.
-            obj.transform.SetParent(inObj.transform); //親オブジェクトを設定.
+            GameObject obj = null;
+
+            if (prefab) {
+                obj = UE.Object.Instantiate(prefab);      //生成.
+            }
+            if (inObj) {
+                obj.transform.SetParent(inObj.transform); //親オブジェクトを設定.
+            }
             return obj;
         }
     }
